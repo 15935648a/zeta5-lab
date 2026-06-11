@@ -1,0 +1,41 @@
+# LaTeX build files and auxiliary files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.cb
+*.cb2
+*.dvi
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.soc
+*.spl
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.toc
+*.vrb
+*.xml
+
+# Exclude macOS temporary files
+.DS_Store
+
+# Explicitly ensure we track PDFs and main tex files
+!*.pdf
+!*.tex
+!*.bib
+!*.sty
+!*.cls

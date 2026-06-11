@@ -1,0 +1,28 @@
+
+-- CONTROL (pure Hankel) --
+  m    rho_m     2nd-diff    kappa_m   margin_m
+   6    4.0586               3.1677    0.8908
+   9    4.3423               3.5855    0.7568
+  12    4.4844     4.9113    3.8502    0.6342
+  15    4.5697     4.9115    3.9372    0.6325
+  18    4.6266     4.9116    4.1072    0.5194
+  21    4.6673     4.9117    4.0982    0.5691
+
+-- THIRDS (d=0,1,2; i<m/3) --
+  m    rho_m     2nd-diff    kappa_m   margin_m
+   6    3.0316               2.7069    0.3247
+   9    3.3029               2.9134    0.3895
+  12    3.4657     4.0624    3.1106    0.3551
+  15    3.5596     3.9076    3.1738    0.3858
+  18    3.6193     3.8813    3.2548    0.3645
+  21    3.6599     3.8699    3.2261    0.4338
+
+-- HALVES (d=0,1; i<m/2) --
+  m    rho_m     2nd-diff    kappa_m   margin_m
+   6    3.3122               2.7069    0.6053
+  10    3.6271               3.1533    0.4738
+  14    3.7599     4.0866    3.3255    0.4344
+  18    3.8326     4.0807    3.4156    0.4170
+
+reference: conservation predicts margin -> 0.412 in every pattern;
+stack-legality predicts margins ~ (rho stays high while kappa drops).

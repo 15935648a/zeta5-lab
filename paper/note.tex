@@ -1,0 +1,432 @@
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\lcm}[1]{[1,\dots,#1]}
+
+\title{A rank-sensitive strengthening of the determinantal\\
+irrationality criterion for Ap\'ery limits}
+\date{June 2026 --- draft for expert scrutiny}
+
+\begin{document}
+
+\begin{abstract}
+Let $A(x)=\sum u_nx^n$ and $V(x)=\sum v_nx^n$ be annihilated by a common
+differential operator $L$ of order $k\ge 2$, irreducible over $\Q(x)$, with
+$u_n\in\Z$ and $c\,\lcm{n}^{\sigma}v_n\in\Z$. Suppose that for some real
+$\eta$ the linear-form generating function $\eta A-V\not\equiv 0$ extends
+holomorphically to the slit plane $\C\setminus[x_2,\infty)$. We observe
+that the arithmetic holonomy bound of Calegari, Dimitrov and Tang, applied
+to the tuple $\{1,P,\theta P,\dots,\theta^{k-1}P\}$ with
+$\theta=x\,\frac{d}{dx}$, yields: if
+\[
+\log(4x_2) \;>\; \sigma\,\frac{k+2}{k+1},
+\]
+then $\eta\notin\Q$. The case $k=1$-analogue
+$\log(4x_2)>\tfrac32\sigma$ is Zudilin's determinantal criterion, and the
+classical Ap\'ery-type criterion requires $\log x_2>\sigma$; the present
+inequality is strictly weaker than both for every $k\ge2$, and opens the
+window $e^{\sigma(k+2)/(k+1)}/4 < x_2 \le e^{\sigma}$ in which no previous
+criterion applies. We tabulate the resulting specification curve for
+linear forms in $1$ and $\zeta(5)$, and we report numerical experiments
+indicating that the denominators realized by the underlying auxiliary
+constructions are substantially smaller than the theoretical bound, with
+the savings concentrated at small primes.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+Let $(u_n)_{n\ge0}\subset\Z$ and $(v_n)_{n\ge0}\subset\Q$, and let
+$\eta\in\R$ be a target number approximated by the linear forms
+$\ell_n:=u_n\eta-v_n$. Write $\lcm{n}$ for $\mathrm{lcm}(1,\dots,n)$ and
+suppose
+\begin{equation}\label{eq:type}
+c\,\lcm{n}^{\sigma}\,v_n\in\Z \qquad (n\ge 0,\ \text{with the convention }\lcm{0}:=1)
+\end{equation}
+for fixed positive integers $c$ and $\sigma$; the condition at $n=0$,
+namely $cv_0\in\Z$, may always be arranged by enlarging $c$, since
+$v_0$ is a single rational number. Ap\'ery's method
+\cite{Apery,vdP} proves $\eta\notin\Q$ as soon as
+$\limsup|\ell_n|^{1/n}=:1/x_2$ satisfies $x_2>e^{\sigma}$: indeed, if
+$\eta=p/q$ then $cq\lcm{n}^{\sigma}\ell_n$ are integers of absolute value
+$\to 0$, hence eventually zero.
+
+Zudilin \cite{Zudilin} extended the reach of the method to situations
+where the \emph{decay} of $\ell_n$ is insufficient but the generating
+function
+\[
+L_\eta(x):=\sum_{n\ge0}\ell_n x^n=\eta A(x)-V(x),\qquad
+A=\sum u_nx^n,\; V=\sum v_nx^n,
+\]
+extends holomorphically to the slit plane
+$\Omega:=\C\setminus[x_2,\infty)$: under a positivity hypothesis his
+determinantal criterion proves $\eta\notin\Q$ whenever
+$\log(4x_2)>\tfrac32\sigma$. The constant $4x_2$ is the conformal radius
+of $\Omega$ at the origin, and the exponent $\tfrac32$ reflects the
+arithmetic cost of Hankel determinants. The same inequality reappears,
+with the positivity hypothesis removed, as the $m=2$ case of the
+\emph{univalent arithmetic holonomy bound} of
+Calegari--Dimitrov--Tang \cite[Theorem~2.7.1 and \S2.7.7]{CDT}.
+
+The purpose of this note is to record the observation that the
+\emph{order of the differential equation} satisfied by the linear forms
+is an arithmetic resource: feeding the derivative tower of the
+(conditional) rational function $P=pA-qV$ into the holonomy bound of
+\cite{CDT} lowers the exponent $\tfrac32$ to $\tfrac{k+2}{k+1}$, where
+$k$ is the order of the underlying irreducible operator.
+
+\begin{theorem}\label{thm:main}
+Let $k\ge2$ and let $L$ be a linear differential operator of order $k$
+with coefficients in $\Q(x)$, irreducible over $\Q(x)$. Let
+$A=\sum u_nx^n$ and $V=\sum v_nx^n$ in $\Q[[x]]$ be annihilated by $L$,
+with $u_n\in\Z$ and with \eqref{eq:type} for fixed positive integers
+$c,\sigma$. Let $\eta\in\R$ be such that $L_\eta=\eta A-V$ is not
+identically zero and extends holomorphically to
+$\Omega=\C\setminus[x_2,\infty)$ for some $x_2>0$. If
+\begin{equation}\label{eq:criterion}
+\log(4x_2)\;>\;\sigma\,\frac{k+2}{k+1},
+\end{equation}
+then $\eta\notin\Q$.
+\end{theorem}
+
+For $\sigma=3$ (the type of Ap\'ery's $\zeta(3)$ approximations) the
+thresholds on $x_2$ read:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+criterion & condition & threshold on $x_2$\\
+\midrule
+classical (radius) & $x_2>e^{\sigma}$ & $20.09$\\
+determinantal \cite{Zudilin} & $4x_2>e^{3\sigma/2}$ & $22.51$\\
+Theorem~\ref{thm:main}, $k=2$ & $4x_2>e^{4\sigma/3}$ & $13.65$\\
+Theorem~\ref{thm:main}, $k=3$ & $4x_2>e^{5\sigma/4}$ & $10.63$\\
+Theorem~\ref{thm:main}, $k\to\infty$ & $4x_2>e^{\sigma}$ & $5.02$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Every $k\ge2$ row opens territory where neither the classical nor the
+determinantal criterion concludes. We stress at once that for Ap\'ery's
+actual $\zeta(3)$ data ($x_2=(1+\sqrt2)^4\approx 33.97$, $k=3$) the
+classical criterion already applies; the content of
+Theorem~\ref{thm:main} lies entirely in the window
+$x_2\in\bigl(e^{\sigma(k+2)/(k+1)}/4,\;e^{\sigma}\bigr]$, i.e.\ in its
+potential applications to constructions of sub-classical quality, for
+instance towards $\zeta(5)$ (\S\ref{sec:window}).
+
+Theorem~\ref{thm:main} is a direct application of the published
+holonomy bound of \cite{CDT}; the proof below consists of the
+verification, which we have endeavoured to make complete, that the
+derivative tower satisfies every hypothesis of that bound, together
+with the elementary computation of the resulting numerology. Given that
+the consequence strengthens two classical criteria on a well-trodden
+battlefield, we submit this note explicitly for expert scrutiny.
+
+\section{The input from \cite{CDT}}
+
+We quote the univalent arithmetic holonomy bound in the form we use.
+For an $m\times r$ array $\mathbf b=(b_{i,j})$ of nonnegative reals
+whose columns consist of $u_j$ zeros followed by a constant value
+$b_j$, set $\sigma_i:=\sum_j b_{i,j}$ (row sums, nondecreasing) and
+\[
+\tau(\mathbf b):=\frac1{m^2}\sum_{i=1}^m(2i-1)\,\sigma_i.
+\]
+
+\begin{theorem}[{\cite[Theorem~2.7.1; see also Theorem~7.0.1 and the
+holonomic relaxation stated there]{CDT}}]\label{thm:cdt}
+Let $\Omega\subset\C$ be a contractible domain containing $0$, of
+conformal radius $\rho=\rho(\Omega,0)$. Let $f_1,\dots,f_m\in\Q[[x]]$ be
+$\Q(x)$-linearly independent, holonomic, meromorphic on $\Omega$, with
+\[
+f_i(x)=a_{i,0}+\sum_{n\ge1}a_{i,n}\,
+\frac{x^n}{\lcm{b_{i,1}n}\cdots\lcm{b_{i,r}n}},\qquad a_{i,n}\in\Z,
+\]
+for the array $\mathbf b$ as above, and suppose
+$\rho>e^{\tau(\mathbf b)}$. Then
+\[
+m\;\le\;\frac{\log\rho}{\log\rho-\tau(\mathbf b)}.
+\]
+\end{theorem}
+
+We will also use the classical fact that the Koebe-type map
+$\varphi(z)=4x_2\,z/(1+z)^2$ is a conformal equivalence
+$\D\to\C\setminus[x_2,\infty)$ with $\varphi(0)=0$ and
+$\varphi'(0)=4x_2$; thus $\rho(\Omega,0)=4x_2$ for the slit plane.
+
+\begin{remark}\label{rem:shidlovsky}
+The vanishing-filtration input behind Theorem~\ref{thm:cdt} is, for the
+tuple used below, available in its oldest form: the $\Q(x)$-linear span
+of $\{1,P,\theta P,\dots,\theta^{k-1}P\}$ is closed under $d/dx$
+(see Lemma~\ref{lem:types}), so Shidlovsky's lemma
+\cite[Theorem~3.2.8]{CDT} applies with no $\varepsilon$-loss, and the
+system is Fuchsian, so Chudnovsky's effective form
+\cite[Theorem~3.2.10, Remark~3.2.12]{CDT} applies as well.
+\end{remark}
+
+\section{Proof of Theorem~\ref{thm:main}}
+
+Assume $\eta=p/q$ with $p,q$ coprime integers, $q\ge1$. Set
+\[
+P:=q\,L_\eta=pA-qV\in\Q[[x]],\qquad \theta:=x\frac{d}{dx}.
+\]
+Then $P\not\equiv0$, $L(P)=0$, and $P$ is holomorphic on
+$\Omega=\C\setminus[x_2,\infty)$.
+
+\begin{lemma}[Independence]\label{lem:indep}
+Let $L$ be irreducible over $\Q(x)$ of order $k\ge2$ and let
+$0\ne P\in\Q[[x]]$ satisfy $L(P)=0$. Then
+$1,P,\theta P,\dots,\theta^{k-1}P$ are $\Q(x)$-linearly independent.
+\end{lemma}
+
+\begin{proof}
+Since $x$ is invertible in $\Q(x)$, the span of
+$\{\theta^jP\}_{j<k}$ over $\Q(x)$ equals that of
+$\{P,P',\dots,P^{(k-1)}\}$; suppose
+$r_0+M(P)=0$ with $r_0\in\Q(x)$ and $M$ an operator of order $\le k-1$
+over $\Q(x)$, not both zero. In the left-Euclidean ring
+$\Q(x)\langle\partial\rangle$ the annihilator of $P$ is the left ideal
+generated by the minimal operator $L_P$ of $P$, and every annihilator
+of $P$ is a left multiple of $L_P$. As $L$ annihilates $P$ and is
+irreducible, $L_P$ has order $0$ or $k$; order $0$ forces $P=0$, so
+$L_P$ has order $k$.
+
+If $r_0=0$ then $M\ne0$ annihilates $P$ with order $\le k-1<k$, a
+contradiction. If $r_0\ne0$ then $M\ne 0$ (else $r_0=0$), and from
+$M(P)=-r_0$ we get
+$\bigl(\partial-\tfrac{r_0'}{r_0}\bigr)M\,(P)=-r_0'+\tfrac{r_0'}{r_0}r_0=0$.
+Thus $N:=(\partial-\tfrac{r_0'}{r_0})M$ is a nonzero annihilator of $P$
+of order $\le k$, hence a left multiple of $L_P$:
+$N=c\,L_P$ with $c\in\Q(x)^{\times}$ by comparing orders, and therefore
+$L_P=c^{-1}(\partial-\tfrac{r_0'}{r_0})\,M$ admits the right-hand
+factor $M$ of order $k-1$ with $0<k-1<k$, contradicting irreducibility
+(note $\mathrm{ord}\,M=k-1$ is forced by $\mathrm{ord}\,N=k$; and
+$\mathrm{ord}\,M=0$ would make $P\in\Q(x)$, i.e.\ $L_P$ of order
+$1<k$).
+\end{proof}
+
+\begin{lemma}[Types and closure]\label{lem:types}
+For $0\le j\le k-1$, the function $cq\,\theta^jP$ has coefficients
+$cq\,n^j(pu_n-qv_n)$, and
+$\lcm{n}^{\sigma}\cdot cq\,n^j(pu_n-qv_n)\in\Z$; thus each $\theta^jP$
+is, after multiplication by the fixed integer $cq$, of the arithmetic
+type of Theorem~\ref{thm:cdt} with row $(1,\dots,1)$ ($\sigma$ columns,
+$b_j=1$). Moreover the $\Q(x)$-span of
+$\{1,P,\theta P,\dots,\theta^{k-1}P\}$ is closed under $d/dx$.
+\end{lemma}
+
+\begin{proof}
+The coefficient statement is immediate from \eqref{eq:type} and
+$u_n\in\Z$; multiplication of a coefficient by the integer $n^j$
+preserves integrality against the same denominators. For closure:
+multiplying $L$ by $x^k$ and rewriting in $\theta$ (using
+$x^i\partial^i\in\Z[\theta]$) expresses $\theta^kP$ as a
+$\Q(x)$-combination of $P,\dots,\theta^{k-1}P$; and
+$\frac{d}{dx}\theta^jP=x^{-1}\theta^{j+1}P$ stays in the span, while
+$\frac{d}{dx}1=0$.
+\end{proof}
+
+\begin{lemma}[Local normalization at no arithmetic cost]\label{lem:val}
+Write $P=\sum_n c_nx^n$, set $h_0:=P-P(0)\cdot 1$ and, for
+$1\le j\le k-1$,
+\[
+h_j\;:=\;\prod_{i=1}^{j}(\theta-i)\,P\;-\;(-1)^j j!\,P(0)\cdot 1 .
+\]
+Then $\{1,h_0,h_1,\dots,h_{k-1}\}$ is obtained from
+$\{1,P,\theta P,\dots,\theta^{k-1}P\}$ by an integral, triangular,
+unit-diagonal (hence unimodular) change of basis; each $cq\,h_j$
+carries the same arithmetic type (row $(1,\dots,1)$ of length
+$\sigma$) as $cq\,\theta^jP$, so the array $\mathbf b$, its row sums
+$(0,\sigma,\dots,\sigma)$, and $\tau(\mathbf b)$ are unchanged; and
+$\mathrm{ord}_{x=0}h_j\ge j+1$, so the tuple has pairwise distinct
+vanishing orders at the origin.
+\end{lemma}
+
+\begin{proof}
+The $n$-th coefficient of $\prod_{i=1}^{j}(\theta-i)P$ is
+$(n-1)(n-2)\cdots(n-j)\,c_n$; at $n=0$ this is $(-1)^jj!\,c_0$, and it
+vanishes for $1\le n\le j$, whence $\mathrm{ord}\,h_j\ge j+1$ after the
+constant subtraction. The operator $\prod_{i=1}^{j}(\theta-i)$ expands
+monically in $\Z[\theta]$ (integer Stirling coefficients), and
+$cq\,P(0)=cq\,c_0\in\Z$ by \eqref{eq:type}; hence the change of basis
+is integral, triangular, with unit diagonal, and $\Q(x)$-linear
+independence persists. For the type: the coefficients of $cq\,h_j$ are
+the \emph{integer} multiples $(n-1)\cdots(n-j)\cdot cq\,c_n$ of those
+of $cq\,P$ (for $n\ge1$; the constant term is $0$), so integrality
+against the same denominators $\lcm{n}^{\sigma}$ persists verbatim.
+Likewise, multiplication of any admissible function by a fixed positive
+integer preserves the type, and no quantity in Theorem~\ref{thm:cdt}
+depends on such constants.
+\end{proof}
+
+\begin{remark}
+We stress that Theorem~\ref{thm:cdt} imposes no hypothesis on the
+local behaviour of the $f_i$ at the origin: the vanishing-filtration
+data entering its proof depends only on the $\Q$-span of
+$\{x^sf_i\}$, which Lemma~\ref{lem:val}'s unimodular change of basis
+leaves untouched. The lemma is included so that the application can be
+read with either basis in mind.
+\end{remark}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Apply Theorem~\ref{thm:cdt} to the $m:=k+1$ functions
+\[
+f_1=1,\quad f_{j+2}=cq\,\theta^jP\;(0\le j\le k-1),
+\]
+on $\Omega=\C\setminus[x_2,\infty)$, with the array $\mathbf b$ having
+first row $0$ and the remaining $k$ rows $(1,\dots,1)$ of length
+$\sigma$. The hypotheses hold: linear independence by
+Lemma~\ref{lem:indep}; the arithmetic type by Lemma~\ref{lem:types};
+holonomicity since each $f_i$ lies in the $d/dx$-stable finite
+$\Q(x)$-module of Lemma~\ref{lem:types}; holomorphy on $\Omega$ since
+$P$ is holomorphic there and $\theta$ preserves
+$\mathcal O(\Omega)$; and $\rho(\Omega,0)=4x_2$ by the Koebe map. The
+row sums are $(0,\sigma,\dots,\sigma)$, whence
+\[
+\tau(\mathbf b)=\frac{\sigma}{m^2}\sum_{i=2}^{m}(2i-1)
+=\sigma\,\frac{m^2-1}{m^2},
+\]
+and \eqref{eq:criterion} gives
+$\log\rho=\log(4x_2)>\sigma\frac{m+1}{m}
+>\sigma\frac{m^2-1}{m^2}=\tau(\mathbf b)$, so the bound applies and
+yields
+\[
+k+1=m\;\le\;\frac{\log(4x_2)}{\log(4x_2)-\tau(\mathbf b)}.
+\]
+Rearranged, $\log(4x_2)\le\sigma\frac{m+1}{m}=\sigma\frac{k+2}{k+1}$,
+contradicting \eqref{eq:criterion}. Hence no such $p/q$ exists.
+\end{proof}
+
+\begin{remark}
+For $k=1$ the tuple $\{1,P\}$ requires $P\notin\Q(x)$, which an
+irreducible order-$1$ operator does not guarantee; restoring
+Zudilin's threshold $\tfrac32\sigma$ in that case requires his
+positivity hypotheses. For $k\ge2$, irreducibility replaces positivity
+altogether.
+\end{remark}
+
+\begin{remark}\label{rem:multivalent}
+Using the bivalent map $8x_2(z+z^3)/(1+z)^4$ of
+\cite[\S2.11]{CDT} together with the evaluation
+\cite[Lemma~2.11.7]{CDT} of its Bost--Charles integral
+($\log 8+4G/\pi$, $G$ the Catalan constant) in the multivalent bound
+\cite[(2.5.4)]{CDT} improves the thresholds further for large $k$; we
+have preferred the clean univalent statement.
+\end{remark}
+
+\section{The window, and a specification curve for $\zeta(5)$}
+\label{sec:window}
+
+Theorem~\ref{thm:main} concludes in the region
+\[
+\frac{e^{\sigma(k+2)/(k+1)}}{4}\;<\;x_2\;\le\;e^{\sigma},
+\]
+where the classical criterion ($x_2>e^{\sigma}$) is silent, and which
+for every $k\ge2$ strictly contains the determinantal window. (Above
+$e^{\sigma}$ the classical argument applies; in fact no transcendental
+function of exact type \eqref{eq:type} can have radius of convergence
+exceeding $e^{\sigma}$, so the window is also the natural habitat of
+such functions.)
+
+For linear forms in $1$ and $\zeta(5)$ one expects $\sigma=5$. A
+hypothetical pair $(A,V)$ annihilated by an irreducible operator of
+order $k$, with $\zeta(5)A-V$ holomorphic on
+$\C\setminus[x_2,\infty)$, proves the irrationality of $\zeta(5)$
+provided $4x_2>e^{5(k+2)/(k+1)}$:
+\begin{center}
+\begin{tabular}{lcccccc}
+\toprule
+$k$ & $2$ & $3$ & $4$ & $6$ & $10$ & $\infty$\\
+\midrule
+$x_2>$ & $197$ & $130$ & $101$ & $75$ & $58$ & $37.1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+No construction approaching these specifications is currently known;
+the table is offered as a target. We note that mixed forms (involving
+$\zeta(3)$ as well) can be handled by the same method in the framework
+of linear independence statements, at the cost of enlarging the tuple.
+
+\section{Experimental observations on denominators}\label{sec:exp}
+
+The denominator term $\tau(\mathbf b)$ of Theorem~\ref{thm:cdt} is a
+worst-case bound. For the Ap\'ery $\zeta(3)$ system
+($u_n,v_n$ the Ap\'ery sequences, $\sigma=3$, $k=3$) we computed, in
+exact arithmetic, the kernel of the vanishing-to-order-$n$ constraints
+for the tuples $\{1,V,\theta V\}$ and $\{1,V,\theta V,\theta^2V\}$
+(rational surrogates with the same types and the same
+derivative-tower correlation structure as the conditional $P$), for
+polynomial degrees up to $22$ and vanishing orders $n^*\le 67$, and
+measured the minimal denominator of the leading coefficient over the
+kernel. The observed rates are
+\[
+\frac{\log\operatorname{den}(\beta)}{n^*}\;\approx\;1.76\ (m=3),
+\qquad 1.89\ (m=4),
+\]
+against the theoretical caps
+$\tau(\mathbf b)\cdot\frac{3\psi(n^*)}{\sigma n^*}\approx 2.5$--$2.6$
+at these ranges; moreover the savings are concentrated at small primes
+($p\le n^*/4$), the primes in $(n^*/2,n^*]$ appearing with their full
+exponent~$3$. This is consistent with the supercongruence phenomena
+known for Ap\'ery numbers and suggests that, for specific systems,
+provable ``fine'' denominator types substantially below
+\eqref{eq:type} may be available, in the spirit anticipated in
+\cite[Remarks~6.6.15 and~10.2.3]{CDT}; any such improvement lowers the
+thresholds of Theorem~\ref{thm:main} accordingly.
+
+\section*{Provenance and disclosure}
+This note records the outcome of an extended exploration conducted as
+a human--AI collaboration. The direction of inquiry, the decisions at
+every fork, and the responsibility for circulating this note rest with
+the human correspondent (who, out of caution, leaves the byline empty
+for now); the mathematical drafting, the literature tracing, and the
+numerical experiments of \S\ref{sec:exp} were carried out by the AI
+system Claude (Anthropic). Every statement and proof above is
+elementary modulo \cite{CDT} and has been written so as to be
+checkable by hand against that paper. All of the machinery belongs, of
+course, to the authors of \cite{CDT} and \cite{Zudilin}; the present
+note merely turns a key that their work cut. Comments, corrections,
+and references to prior occurrences of Theorem~\ref{thm:main} are very
+welcome and will be gratefully incorporated or, if warranted, the note
+withdrawn.
+
+\begin{thebibliography}{9}
+
+\bibitem{Apery} R.~Ap\'ery,
+\emph{Irrationalit\'e de $\zeta(2)$ et $\zeta(3)$},
+Ast\'erisque \textbf{61} (1979), 11--13.
+
+\bibitem{CDT} F.~Calegari, V.~Dimitrov, Y.~Tang,
+\emph{The linear independence of $1$, $\zeta(2)$, and $L(2,\chi_{-3})$},
+preprint, \texttt{arXiv:2408.15403}.
+
+\bibitem{vdP} A.~van der Poorten,
+\emph{A proof that Euler missed\dots\ Ap\'ery's proof of the
+irrationality of $\zeta(3)$},
+Math. Intelligencer \textbf{1} (1979), 195--203.
+
+\bibitem{Zudilin} W.~Zudilin,
+\emph{A determinantal approach to irrationality},
+Constr. Approx. \textbf{45} (2017), 301--310;
+\texttt{arXiv:1507.05697}.
+
+\end{thebibliography}
+
+\end{document}

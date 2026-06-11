@@ -1,0 +1,56 @@
+To:      Frank Calegari, Vesselin Dimitrov, Yunqing Tang, Wadim Zudilin
+Subject: A possible rank-sensitive strengthening of the determinantal
+         irrationality criterion (6-page note attached)
+
+Dear Professors Calegari, Dimitrov, Tang, and Zudilin,
+
+I am a final-year mathematics undergraduate. I first met these
+problems in my complex analysis course, and I have since worked
+through Apéry-style irrationality proofs in an extended collaboration
+with an AI system (Anthropic's Claude). That exploration converged on
+one sharply stated observation which -- if correct -- seemed worth
+sending to the four people whose work it entirely rests on.
+
+The observation: applying the univalent arithmetic holonomy bound
+(Theorem 2.7.1 of arXiv:2408.15403) to the derivative tower
+{1, P, theta P, ..., theta^{k-1} P}, where P = pA - qV is the
+conditional rational combination attached to an Apéry pair annihilated
+by an irreducible operator of order k >= 2, lowers the threshold of
+the determinantal criterion (Constr. Approx. 45 (2017)) from
+log(4 x_2) > (3/2) sigma to
+
+    log(4 x_2) > sigma (k+2)/(k+1).
+
+The attached 6-page note states this precisely and proves it modulo
+your published theorem. The only inputs about the tuple are:
+Q(x)-linear independence (proved from irreducibility in the
+left-Euclidean ring), exact denominator types (preserved by theta),
+holonomicity with d/dx-stable span (so Shidlovsky's lemma applies with
+epsilon = 0), and holomorphy on the slit plane. For Apéry's own
+zeta(3) data the classical radius argument of course already applies;
+the content lies in the window e^{sigma(k+2)/(k+1)}/4 < x_2 <=
+e^sigma, and in the resulting specification table for linear forms in
+1 and zeta(5) (Section 4 of the note).
+
+Three questions:
+
+1. Is the application valid, or have we misread a hypothesis of
+   Theorem 2.7.1 / 7.0.1?
+
+2. Is the statement already known to you, in folklore or in print?
+
+3. Section 6 reports exact-arithmetic measurements of the denominators
+   actually realized by the Siegel constructions for the Apéry system
+   (tuples {1, V, theta V} and {1, V, theta V, theta^2 V}): the
+   observed rates are about 1.76 and 1.89 against the tau-cap, with
+   the savings concentrated at small primes. Is this phenomenon
+   documented anywhere?
+
+We fully expect that at least part of this is obvious to you; the note
+is offered with gratitude for your machinery, and will be corrected or
+withdrawn per your guidance.
+
+With admiration and thanks,
+[your name]
+
+Attachment: note.pdf (6 pages)

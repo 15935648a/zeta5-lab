@@ -39,3 +39,7 @@
 !*.bib
 !*.sty
 !*.cls
+
+# Ignore spec and claim
+SPEC.md
+CLAIM.md
